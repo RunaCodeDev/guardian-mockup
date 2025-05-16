@@ -5,6 +5,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import FeatureCard from "@/components/FeatureCard";
 import InstallationStep from "@/components/InstallationStep";
+import TestimonialCard from "@/components/TestimonioCard";
 
 export default function Home() {
   return (
@@ -155,6 +156,33 @@ export default function Home() {
               title="Soporte continuo"
               description="Te brindamos soporte técnico y mantenimiento para asegurar la protección a largo plazo."
               isLast={true}
+            />
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="container mx-auto px-4 py-16 bg-[#1a1a1a]">
+          <h2 className="text-4xl font-bold mb-12 text-center">
+            Lo que dicen nuestros clientes
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <TestimonialCard
+              quote="Desde que instalamos Guardian, dormimos tranquilos. La respuesta ante una falsa alarma fue inmediata y muy profesional."
+              author="Carlos Rodríguez"
+              role="Cliente residencial"
+              avatar="/avatar/person1.avif"
+            />
+            <TestimonialCard
+              quote="El sistema de monitoreo ha sido fundamental para la seguridad de mi negocio. El equipo técnico es excelente y siempre disponible."
+              author="María González"
+              role="Dueña de comercio"
+              avatar="/avatar/person2.avif"
+            />
+            <TestimonialCard
+              quote="La instalación fue rápida y sin complicaciones. El personal es muy amable y explica todo el funcionamiento del sistema detalladamente."
+              author="Juan Pérez"
+              role="Cliente corporativo"
+              avatar="/avatar/person3.avif"
             />
           </div>
         </section>
