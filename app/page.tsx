@@ -13,12 +13,15 @@ export default function Home() {
       <main className="w-full flex flex-col ">
         {/* Hero Section */}
         <section className="relative flex w-full items-center py-16 md:py-24">
-          <div
-            className="absolute inset-0 w-screen h-full bg-cover bg-center opacity-10 -z-5"
-            style={{
-              backgroundImage: "url('/background-hero.png')",
-            }}
-          />
+          <video
+            className="absolute inset-0 w-screen h-full object-cover opacity-10 -z-5"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            src="/videos/video.mp4"
+          ></video>
           <div className="container mx-auto px-4 relative flex flex-col md:flex-row items-center w-full justify-between">
             <div className="md:w-1/2 mb-10 md:mb-0">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
