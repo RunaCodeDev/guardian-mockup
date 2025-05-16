@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import FeatureCard from "@/components/FeatureCard";
 import InstallationStep from "@/components/InstallationStep";
 import TestimonialCard from "@/components/TestimonioCard";
+import AnimatedCounter from "@/components/AnimatedCounterProps";
 
 export default function Home() {
   return (
@@ -126,7 +126,7 @@ export default function Home() {
         </section>
 
         {/* Installation Process Section */}
-        <section className="container mx-auto px-4 py-16">
+        <section className="container mx-auto px-4 py-16 h-screen flex flex-col items-center my-10">
           <h2 className="text-4xl font-bold mb-12 text-center">
             Proceso de Instalación
           </h2>
@@ -160,30 +160,124 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Stats Section */}
+        <section className="py-20 relative overflow-hidden">
+          {/* Background with gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a] via-[#2a2a2a] to-[#1a1a1a] opacity-90"></div>
+
+          {/* Animated particles or light effect (optional) */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute w-40 h-40 bg-guardian-red rounded-full blur-3xl -top-10 -left-10 animate-pulse"></div>
+            <div
+              className="absolute w-60 h-60 bg-guardian-red rounded-full blur-3xl bottom-10 right-10 animate-pulse"
+              style={{ animationDelay: "1s" }}
+            ></div>
+          </div>
+
+          <div className="container mx-auto px-4 relative">
+            <h2 className="text-4xl font-bold mb-16 text-center">
+              Nuestros números hablan por sí solos
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <AnimatedCounter
+                end={5000}
+                suffix="+"
+                title="Clientes satisfechos"
+              />
+              <AnimatedCounter end={98} suffix="%" title="Tasa de respuesta" />
+              <AnimatedCounter
+                end={15}
+                suffix=" min"
+                title="Tiempo promedio de respuesta"
+              />
+              <AnimatedCounter
+                end={24}
+                suffix="/7"
+                title="Monitoreo continuo"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* Testimonials Section */}
-        <section className="container mx-auto px-4 py-16 bg-[#1a1a1a]">
-          <h2 className="text-4xl font-bold mb-12 text-center">
-            Lo que dicen nuestros clientes
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <TestimonialCard
-              quote="Desde que instalamos Guardian, dormimos tranquilos. La respuesta ante una falsa alarma fue inmediata y muy profesional."
-              author="Carlos Rodríguez"
-              role="Cliente residencial"
-              avatar="/avatar/person1.avif"
-            />
-            <TestimonialCard
-              quote="El sistema de monitoreo ha sido fundamental para la seguridad de mi negocio. El equipo técnico es excelente y siempre disponible."
-              author="María González"
-              role="Dueña de comercio"
-              avatar="/avatar/person2.avif"
-            />
-            <TestimonialCard
-              quote="La instalación fue rápida y sin complicaciones. El personal es muy amable y explica todo el funcionamiento del sistema detalladamente."
-              author="Juan Pérez"
-              role="Cliente corporativo"
-              avatar="/avatar/person3.avif"
-            />
+        <section className="relative py-24 overflow-hidden my-10">
+          {/* Background pattern */}
+          <div className="absolute inset-0 bg-[#1a1a1a]">
+            <div
+              className="absolute inset-0 opacity-5"
+              style={{
+                backgroundImage:
+                  "radial-gradient(#ffffff 1px, transparent 1px)",
+                backgroundSize: "30px 30px",
+              }}
+            ></div>
+          </div>
+
+          {/* Decorative elements */}
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-guardian-red to-transparent opacity-30"></div>
+          <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-guardian-red to-transparent opacity-30"></div>
+
+          <div className="absolute -left-20 top-1/4 w-40 h-40 bg-guardian-red opacity-5 rounded-full blur-3xl"></div>
+          <div className="absolute -right-20 bottom-1/4 w-40 h-40 bg-guardian-red opacity-5 rounded-full blur-3xl"></div>
+
+          <div className="container mx-auto px-4 relative">
+            {/* Section header with decorative elements */}
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold mb-4 inline-block relative">
+                Lo que dicen nuestros clientes
+                <span className="absolute -bottom-2 left-0 w-full h-1 bg-guardian-red"></span>
+              </h2>
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                Estas son algunas experiencias de quienes ya confían en nuestros
+                sistemas de seguridad
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <TestimonialCard
+                quote="Desde que instalamos Guardian, dormimos tranquilos. La respuesta ante una falsa alarma fue inmediata y muy profesional."
+                author="Carlos Rodríguez"
+                role="Cliente residencial"
+                avatar="/avatar/person1.avif"
+              />
+              <TestimonialCard
+                quote="El sistema de monitoreo ha sido fundamental para la seguridad de mi negocio. El equipo técnico es excelente y siempre disponible."
+                author="María González"
+                role="Dueña de comercio"
+                avatar="/avatar/person2.avif"
+              />
+              <TestimonialCard
+                quote="La instalación fue rápida y sin complicaciones. El personal es muy amable y explica todo el funcionamiento del sistema detalladamente."
+                author="Juan Pérez"
+                role="Cliente corporativo"
+                avatar="/avatar/person3.avif"
+              />
+            </div>
+
+            {/* Call to action inside testimonials section */}
+            <div className="mt-16 text-center">
+              <Link
+                href="#"
+                className="inline-flex items-center text-guardian-red hover:underline"
+              >
+                <span>Ver más opiniones de nuestros clientes</span>
+                <svg
+                  className="w-4 h-4 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
+              </Link>
+            </div>
           </div>
         </section>
 
