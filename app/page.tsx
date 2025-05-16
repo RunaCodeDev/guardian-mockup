@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import FeatureCard from "@/components/FeatureCard";
+import InstallationStep from "@/components/InstallationStep";
 
 export default function Home() {
   return (
@@ -67,76 +69,26 @@ export default function Home() {
         <section className="container mx-auto px-4 py-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Feature 1 */}
-            <div className="bg-[#222222] p-6 rounded-lg">
-              <div className="h-48 mb-4 flex items-center justify-center">
-                <Image
-                  src="/control.png"
-                  alt="Vigilancia motorizada"
-                  width={200}
-                  height={150}
-                  className="object-contain"
-                />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Vigilancia motorizada</h3>
-              <p className="text-gray-300 mb-4">
-                Equipo listo para salir hacia tu domicilio antes de sonar la
-                alarma.
-              </p>
-              <Link
-                href="/servicios/vigilancia"
-                className="inline-flex items-center text-sm hover:underline"
-              >
-                Ver más <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
-            </div>
-
+            <FeatureCard
+              img="/control.png"
+              title="Vigilancia motorizada"
+              description="Equipo listo para salir hacia tu domicilio antes de sonar la alarma."
+              link="/servicios/vigilancia"
+            />
             {/* Feature 2 */}
-            <div className="bg-[#222222] p-6 rounded-lg">
-              <div className="h-48 mb-4 flex items-center justify-center">
-                <Image
-                  src="/camara.png"
-                  alt="Monitoreo 24/7"
-                  width={200}
-                  height={150}
-                  className="object-contain"
-                />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Monitoreo 24/7</h3>
-              <p className="text-gray-300 mb-4">
-                Atendemos cada evento registrado brindando atención inmediata.
-              </p>
-              <Link
-                href="/servicios/monitoreo"
-                className="inline-flex items-center text-sm hover:underline"
-              >
-                Ver más <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
-            </div>
-
+            <FeatureCard
+              img="/camara.png"
+              title="Monitoreo 24/7"
+              description="Atendemos cada evento registrado brindando atención inmediata."
+              link="/servicios/monitoreo"
+            />
             {/* Feature 3 */}
-            <div className="bg-[#222222] p-6 rounded-lg">
-              <div className="h-48 mb-4 flex items-center justify-center">
-                <Image
-                  src="/compu.png"
-                  alt="Instalación limpia y rápida"
-                  width={200}
-                  height={150}
-                  className="object-contain"
-                />
-              </div>
-              <h3 className="text-xl font-bold mb-2">
-                Instalación limpia y rápida
-              </h3>
-              <p className="text-gray-300 mb-4">
-                Especialistas propios eficientes que se preocupan por tu hogar.
-              </p>
-              <Link
-                href="/servicios/instalacion"
-                className="inline-flex items-center text-sm hover:underline"
-              >
-                Ver más <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
-            </div>
+            <FeatureCard
+              img="/compu.png"
+              title="Instalación limpia y rápida"
+              description="Especialistas propios eficientes que se preocupan por tu hogar."
+              link="/servicios/instalacion"
+            />
           </div>
         </section>
 
@@ -169,6 +121,41 @@ export default function Home() {
             {/* Removed mb-8 from here as it's on the image container now */}
             <h2 className="text-3xl font-bold text-gray-700">Hellgrün</h2>{" "}
             {/* Changed div to h2 for semantic meaning, adjusted color slightly */}
+          </div>
+        </section>
+
+        {/* Installation Process Section */}
+        <section className="container mx-auto px-4 py-16">
+          <h2 className="text-4xl font-bold mb-12 text-center">
+            Proceso de Instalación
+          </h2>
+          <div className="max-w-4xl mx-auto ">
+            <InstallationStep
+              number={1}
+              title="Consulta inicial"
+              description="Nos contactas y programamos una visita gratuita para evaluar tus necesidades de seguridad."
+            />
+            <InstallationStep
+              number={2}
+              title="Diseño personalizado"
+              description="Nuestros expertos diseñan un sistema de seguridad adaptado específicamente a tu hogar o negocio."
+            />
+            <InstallationStep
+              number={3}
+              title="Instalación profesional"
+              description="Técnicos certificados instalan tu sistema con mínimas molestias y máxima eficiencia."
+            />
+            <InstallationStep
+              number={4}
+              title="Configuración y prueba"
+              description="Configuramos tu sistema y realizamos pruebas exhaustivas para garantizar su correcto funcionamiento."
+            />
+            <InstallationStep
+              number={5}
+              title="Soporte continuo"
+              description="Te brindamos soporte técnico y mantenimiento para asegurar la protección a largo plazo."
+              isLast={true}
+            />
           </div>
         </section>
 
