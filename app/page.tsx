@@ -6,6 +6,9 @@ import FeatureCard from "@/components/FeatureCard";
 import InstallationStep from "@/components/InstallationStep";
 import TestimonialCard from "@/components/TestimonioCard";
 import AnimatedCounter from "@/components/AnimatedCounterProps";
+import { ArrowRight } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -126,37 +129,80 @@ export default function Home() {
         </section>
 
         {/* Installation Process Section */}
-        <section className="container mx-auto px-4 py-16 h-screen flex flex-col items-center my-10">
-          <h2 className="text-4xl font-bold mb-12 text-center">
-            Proceso de Instalación
-          </h2>
-          <div className="max-w-4xl mx-auto ">
-            <InstallationStep
-              number={1}
-              title="Consulta inicial"
-              description="Nos contactas y programamos una visita gratuita para evaluar tus necesidades de seguridad."
-            />
-            <InstallationStep
-              number={2}
-              title="Diseño personalizado"
-              description="Nuestros expertos diseñan un sistema de seguridad adaptado específicamente a tu hogar o negocio."
-            />
-            <InstallationStep
-              number={3}
-              title="Instalación profesional"
-              description="Técnicos certificados instalan tu sistema con mínimas molestias y máxima eficiencia."
-            />
-            <InstallationStep
-              number={4}
-              title="Configuración y prueba"
-              description="Configuramos tu sistema y realizamos pruebas exhaustivas para garantizar su correcto funcionamiento."
-            />
-            <InstallationStep
-              number={5}
-              title="Soporte continuo"
-              description="Te brindamos soporte técnico y mantenimiento para asegurar la protección a largo plazo."
-              isLast={true}
-            />
+        <section
+          className="relative flex flex-col items-center justify-center
+         py-24 overflow-hidden my-10"
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] to-[#222] opacity-90"></div>
+
+          <div
+            className="absolute inset-0 opacity-5"
+            style={{
+              backgroundImage:
+                "linear-gradient(135deg, #333 25%, transparent 25%), linear-gradient(225deg, #333 25%, transparent 25%), linear-gradient(45deg, #333 25%, transparent 25%), linear-gradient(315deg, #333 25%, transparent 25%)",
+              backgroundPosition: "10px 0, 10px 0, 0 0, 0 0",
+              backgroundSize: "20px 20px",
+              backgroundRepeat: "repeat",
+            }}
+          ></div>
+
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-guardian-red to-transparent opacity-30"></div>
+          <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-guardian-red to-transparent opacity-30"></div>
+
+          <div className="container mx-auto px-4 relative flex flex-col items-center justify-center">
+            <div className="text-center mb-16">
+              <div className="inline-block">
+                <h2 className="text-4xl font-bold mb-4 relative inline-block">
+                  Proceso de Instalación
+                  <span className="absolute -bottom-2 left-0 w-full h-1 bg-guardian-red"></span>
+                </h2>
+              </div>
+              <p className="text-gray-400 max-w-2xl mx-auto mt-4">
+                Nuestro proceso de instalación está diseñado para ser simple,
+                eficiente y adaptado a tus necesidades
+              </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto bg-[#1a1a1a]/50 p-8 rounded-xl backdrop-blur-sm">
+              <InstallationStep
+                number={1}
+                title="Consulta inicial"
+                description="Nos contactas y programamos una visita gratuita para evaluar tus necesidades de seguridad."
+              />
+              <InstallationStep
+                number={2}
+                title="Diseño personalizado"
+                description="Nuestros expertos diseñan un sistema de seguridad adaptado específicamente a tu hogar o negocio."
+              />
+              <InstallationStep
+                number={3}
+                title="Instalación profesional"
+                description="Técnicos certificados instalan tu sistema con mínimas molestias y máxima eficiencia."
+              />
+              <InstallationStep
+                number={4}
+                title="Configuración y prueba"
+                description="Configuramos tu sistema y realizamos pruebas exhaustivas para garantizar su correcto funcionamiento."
+              />
+              <InstallationStep
+                number={5}
+                title="Soporte continuo"
+                description="Te brindamos soporte técnico y mantenimiento para asegurar la protección a largo plazo."
+                isLast={true}
+              />
+            </div>
+
+            <Button
+              size={"lg"}
+              className="group relative mt-10 bg-guardian-red text-white text-xl font-bold rounded-full px-12 py-6 overflow-hidden hover:bg-red-700 transition-all duration-300 hover:shadow-lg hover:shadow-guardian-red/30"
+            >
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-guardian-red via-red-600 to-guardian-red opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-size-200 animate-gradient-x"></div>
+              <div className="absolute -inset-1 rounded-full opacity-30 blur-sm bg-gradient-to-r from-guardian-red via-[#222] to-guardian-red group-hover:opacity-50 transition-opacity duration-300 group-hover:animate-pulse"></div>
+              <span className="relative flex items-center gap-2">
+                Solicitar una visita
+                <ArrowRight className="w-6 h-6 transform group-hover:translate-x-1 transition-transform duration-300" />
+              </span>
+            </Button>
           </div>
         </section>
 
@@ -202,7 +248,6 @@ export default function Home() {
 
         {/* Testimonials Section */}
         <section className="relative py-24 overflow-hidden my-10">
-          {/* Background pattern */}
           <div className="absolute inset-0 bg-[#1a1a1a]">
             <div
               className="absolute inset-0 opacity-5"
@@ -214,7 +259,6 @@ export default function Home() {
             ></div>
           </div>
 
-          {/* Decorative elements */}
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-guardian-red to-transparent opacity-30"></div>
           <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-guardian-red to-transparent opacity-30"></div>
 
@@ -222,7 +266,6 @@ export default function Home() {
           <div className="absolute -right-20 bottom-1/4 w-40 h-40 bg-guardian-red opacity-5 rounded-full blur-3xl"></div>
 
           <div className="container mx-auto px-4 relative">
-            {/* Section header with decorative elements */}
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-4 inline-block relative">
                 Lo que dicen nuestros clientes
@@ -255,7 +298,6 @@ export default function Home() {
               />
             </div>
 
-            {/* Call to action inside testimonials section */}
             <div className="mt-16 text-center">
               <Link
                 href="#"
